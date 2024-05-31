@@ -1,10 +1,12 @@
+# dimensions are in mm
+# DPI is 300
 paper:
   width: 180
-  height: 150
+  height: 270
   margin: 0
 label:
   width: 60
-  height: 20
+  height: 19
   type:
     width: 8
     font_size: 7
