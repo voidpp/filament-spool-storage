@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "spool-label-generator"
+version = "0.1.0"
+description = ""
+authors = ["Lajos Santa <santa.lajos@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pillow = "^10.3.0"
+pydantic = "^2.7.2"
+pyyaml = "^6.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
