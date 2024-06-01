@@ -1,17 +1,8 @@
 from PIL import Image, ImageDraw, ImageFont
 
-from contants import dpi
-
-inch_mm = 25.4
-
 
 class TextOverflowException(Exception):
     pass
-
-
-def mm(value: float) -> int:
-    """convert mm to pixels"""
-    return int(round(value * dpi / inch_mm))
 
 
 def draw_text(

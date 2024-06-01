@@ -8,7 +8,6 @@ from types_ import Filament, Config
 def render_filament_labels(filaments: list[Filament], config: Config, output_file_basename: str):
     cursor_x_pos = config.paper.margin
     cursor_y_pos = config.paper.margin
-
     current_image = None
     image_index = 0
 
@@ -83,4 +82,4 @@ def render_filament_labels(filaments: list[Filament], config: Config, output_fil
             except TextOverflowException:
                 continue
         else:
-            raise Exception(f"Could not render name for {filament}")
+            raise Exception(f"Could not render name for {filament}. Stopping.")

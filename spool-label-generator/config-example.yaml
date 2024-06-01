@@ -6,7 +6,7 @@ paper:
   margin: 0
 label:
   width: 60
-  height: 19
+  height: 20
   type:
     width: 8
     font_size: 7

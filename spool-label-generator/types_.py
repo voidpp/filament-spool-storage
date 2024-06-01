@@ -6,7 +6,7 @@ from pydantic.functional_validators import BeforeValidator
 from typing_extensions import Annotated
 from yaml import safe_load
 
-from tools import mm
+from contants import dpi, inch_mm
 
 
 class FilamentTypeDescriptor(BaseModel):
@@ -39,7 +39,11 @@ class FilamentManufacturer(Filament):
             yield " ".join(words[: -(idx + 1)]) + "\n" + " ".join(words[-(idx + 1) :])
 
 
-px = Annotated[int, BeforeValidator(mm)]
+def mm_to_px(value: float) -> int:
+    return int(round(value * dpi / inch_mm))
+
+
+px = Annotated[int, BeforeValidator(mm_to_px)]
 
 
 class PaperConfig(BaseModel):
