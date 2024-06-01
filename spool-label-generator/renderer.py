@@ -12,16 +12,6 @@ def render_filament_labels(filaments: list[Filament], config: Config, output_fil
     image_index = 0
 
     for idx, filament in enumerate(filaments):
-        if cursor_y_pos + config.label.height > config.paper.height or idx == len(filaments) - 1:
-            if current_image is None:
-                raise Exception("WTF?")
-            filename = f"{output_file_basename}-{image_index}.png"
-            current_image.save(filename, dpi=(dpi, dpi))
-            print(f"{filename} saved.")
-            current_image.close()
-            current_image = None
-            image_index += 1
-
         if current_image is None:
             current_image = Image.new("RGB", (config.paper.width, config.paper.height), (255, 255, 255))
             cursor_x_pos = config.paper.margin
@@ -83,3 +73,13 @@ def render_filament_labels(filaments: list[Filament], config: Config, output_fil
                 continue
         else:
             raise Exception(f"Could not render name for {filament}. Stopping.")
+
+        if cursor_y_pos + config.label.height > config.paper.height or idx == len(filaments) - 1:
+            if current_image is None:
+                raise Exception("WTF?")
+            filename = f"{output_file_basename}-{image_index}.png"
+            current_image.save(filename, dpi=(dpi, dpi))
+            print(f"{filename} saved.")
+            current_image.close()
+            current_image = None
+            image_index += 1
